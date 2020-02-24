@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Doe sangue! Doe vida!</title>
 </head>
 <body>
@@ -9,7 +9,7 @@
     <header>
         <img 
         class="logo"
-        src="assets/logo.png" 
+        src="/assets/logo.png" 
         alt="Imagem de Doe">
         <h2>A sua doacao e importante</h2>
         <p>Ate 3 vidas com 1 doacao</p>
@@ -20,7 +20,7 @@
 
     <section class="form hide">
         <h2>Entre na lista de doadores</h2>
-        <form action="/">
+        <form action="/" method="POST">
             <input
             type="text"
             name="name"
@@ -42,23 +42,12 @@
         <h2>Ultimos <span>doadores</span></h2>
 
         <section class="donors">
-            <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Pedro Lima</p>
-            </div>
-
-            <div class="donor">
-                <div class="blood">B+</div>
-                <p>Gilmar Lima</p>
-            </div>
-            <div class="donor">
-                <div class="blood">AB+</div>
-                <p>Pedro Lima</p>
-            </div>
-            <div class="donor">
-                <div class="blood">A</div>
-                <p>Mayk Brito</p>
-            </div>
+            {% for donor in donors %}
+                <div class="donor">
+                    <div class="blood">{{ donor.blood }}</div>
+                    <p>{{ donor.name }}</p>
+                </div>
+            {% endfor %}
         </section>
     </main>
 
